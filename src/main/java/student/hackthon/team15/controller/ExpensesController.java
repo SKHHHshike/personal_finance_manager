@@ -25,8 +25,16 @@ public class ExpensesController {
 
     @PostMapping(consumes={"application/json","application/xml"},
             produces={"application/json","application/xml"})
+    public ResponseEntity<ExpensesEntity> addItemToExpenses(@RequestBody ExpensesEntity item) {
+        expensesService.addItemsToExpenses(item);
+        URI uri = URI.create("/category_manage" + item.getId());
+        return ResponseEntity.created(uri).body(item);
+    }
+
+    @PostMapping(consumes={"application/json","application/xml"},
+            produces={"application/json","application/xml"})
     public ResponseEntity<CategoriesEntity> addItemToCategory(@RequestBody CategoriesEntity item) {
-        expensesService.addItemsToCategory();
+        expensesService.addItemsToCategory(item);
         URI uri = URI.create("/category_manage" + item.getId());
         return ResponseEntity.created(uri).body(item);
     }

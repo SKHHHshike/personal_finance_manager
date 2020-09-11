@@ -8,6 +8,15 @@ public class HomeItems {
     private double budget;
     private double accountValue;
 
+    public HomeItems(double expensesValue, double billsValue, double billsUnpaid, double incomeValue, double budget, double accountValue) {
+        this.expensesValue = expensesValue;
+        this.billsValue = billsValue;
+        this.billsUnpaid = billsUnpaid;
+        this.incomeValue = incomeValue;
+        this.budget = budget;
+        this.accountValue = accountValue;
+    }
+
     public double getExpensesValue() {
         return expensesValue;
     }
